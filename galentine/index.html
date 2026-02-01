@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galentine 💕</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 id="message">Will you be my Galentine? 💖</h1>
+
+    <div class="buttons">
+        <button onclick="yesClicked()">Yes 💖</button>
+        <button onclick="noClicked()">No 🙃</button>
+    </div>
+
+    <div id="confetti"></div>
+
+    <script>
+        function yesClicked() {
+            document.getElementById("message").innerText = "Love you ❤️";
+            createConfetti();
+        }
+
+        function noClicked() {
+            document.getElementById("message").innerText = "Wrong answer 😌 try again";
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * window.innerWidth + "px";
+                confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 4000);
+            }
+        }
+    </script>
+
+</body>
+</html>
+
